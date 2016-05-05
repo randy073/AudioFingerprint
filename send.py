@@ -39,10 +39,17 @@ class Sender(object):
         self.write(self.silence)
 
     def modulate(self, bits):
+        fileName = "symbols_sent"
+        writeFile = open(fileName, 'w')
         bits = itertools.chain(bits, self.padding)
         Nfreq = len(self.carriers)
         symbols_iter = common.iterate(self.modem.encode(bits), size=Nfreq)
         for i, symbols in enumerate(symbols_iter, 1):
+           # writeFile.write(format(symbols))
+            writeFile.write(str(symbols.real))
+            writeFile.write(" ")
+            writeFile.write(str(symbols.imag))
+            writeFile.write("\n")
             self.write(np.dot(symbols, self.carriers))
             if i % self.iters_per_report == 0:
                 total_bits = i * Nfreq * self.modem.bits_per_symbol
