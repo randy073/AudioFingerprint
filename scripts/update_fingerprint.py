@@ -2,9 +2,9 @@ import numpy as np
 import sys
 
 fingerprintFname = sys.argv[1] #get name of fingerprint file
+freq = sys.argv[2]
 
-
-received = np.loadtxt('received_symbols').view(complex).reshape(-1)
+received = np.loadtxt('received_symbols' + freq).view(complex).reshape(-1)
 sent = np.loadtxt('symbols_sent').view(complex).reshape(-1)
 fingerprint = received/sent;
 

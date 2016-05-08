@@ -41,6 +41,9 @@ def recv(config, src, dst, dump_audio=None, pylab=None):
     reader = stream.Reader(src, data_type=common.loads)
     signal = itertools.chain.from_iterable(reader)
 
+    print 'signnal = '
+    print signal
+
     log.debug('Skipping %.3f seconds', config.skip_start)
     common.take(signal, int(config.skip_start * config.Fs))
 

@@ -210,7 +210,7 @@ class Receiver(object):
         print 'y ndim'
         print y.ndim
         
-        fileName = "received_symbols11"
+        fileName = "received_symbols2"
         #writeFile = open(fileName,'w')
         # for i in range(y.size):
         #     writeFile.write(str(y.real[i]))
