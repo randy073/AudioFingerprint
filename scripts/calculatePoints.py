@@ -155,7 +155,7 @@ print guess
 print 'material - '
 print material
 
-writeFile = open('shapeDataClayFlat.csv','a')
+writeFile = open('shapeDataCardboardLow.csv','a')
 writeFile.write(material)
 writeFile.write(', ')
 writeFile.write(guess)
